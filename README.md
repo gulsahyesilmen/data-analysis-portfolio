@@ -36,7 +36,7 @@ The weights are analysis choices, not optimized parameters. The time-weighted fu
 data-analysis-portfolio/
 ├── README.md
 ├── ab-testing/
-│   └── ab-testing.ipynb
+│   └── a-b-testing.ipynb
 └── product-rating/
     └── rating-products-sorting-reviews.ipynb
 ```
