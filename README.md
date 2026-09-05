@@ -1,5 +1,4 @@
-# data-analysis-portfolio
-Python data analysis portfolio featuring A/B testing, product rating, and review ranking.
+
 # Data Analysis Portfolio
 
 Python projects exploring business questions through statistical analysis, product rating, and review ranking.
@@ -16,7 +15,7 @@ Compare purchase performance between control and test groups using descriptive s
 
 The ratios are averages of individual row ratios, not ratios of group totals. The tests assume independent observations; the notebook does not independently establish the randomization or sampling design. Exploratory p-values are reported without adjustment for multiple comparisons and should not be treated as a confirmed business decision.
 
-[View notebook](ab-testing/ab-testing.ipynb) · [View on Kaggle](https://www.kaggle.com/code/gulsahyesilmen/a-b-testing)
+[View notebook](ab-testing/a-b-testing.ipynb) · [View on Kaggle](https://www.kaggle.com/code/gulsahyesilmen/a-b-testing)
 
 ### 2. Product Rating & Review Ranking
 
