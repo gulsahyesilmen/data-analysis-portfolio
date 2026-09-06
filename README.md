@@ -1,7 +1,6 @@
-
 # Data Analysis Portfolio
 
-Python projects exploring business questions through statistical analysis, product rating, and review ranking.
+Python projects exploring business questions through statistical analysis, product rating, review ranking, and movie recommendation systems.
 
 ## Projects
 
@@ -29,15 +28,35 @@ The weights are analysis choices, not optimized parameters. The time-weighted fu
 
 [View notebook](product-rating/rating-products-sorting-reviews.ipynb) · [View on Kaggle](https://www.kaggle.com/code/gulsahyesilmen/rating-products-sorting-reviews)
 
+### 3. Hybrid Movie Recommender System
+
+Combine user-based and item-based collaborative filtering to generate two complementary movie recommendation lists from MovieLens ratings.
+
+- **User-based:** Identify users who rated at least 60% of the selected user's movies and retain Pearson correlations above 0.65. Rank candidate movies by the mean of correlation × rating, keeping scores above 3.5.
+- **Item-based:** Find movies similar to the movie the selected user most recently rated five stars. Require positive correlation and at least 20 co-rating users.
+- **Combined output:** Select up to five movies per method, excluding previously rated movies and duplicates across the two lists.
+
+Movies with fewer than 1,000 ratings are excluded from the similarity matrix. If the reference movie is absent from that matrix, its ratings are retrieved from the original rating dataset.
+
+This project follows the Miuul *Hybrid Recommender System* assignment, with additional exclusions and overlap checks. The two lists are combined without blending their scores: the user-based assignment score and item-based correlation are not directly comparable. Thresholds are modeling choices, and some users may receive fewer than ten recommendations. Recommendation quality has not been evaluated on held-out data.
+
+[View notebook](hybrid-recommender/hybrid-recommender-system.ipynb) · [View on Kaggle](https://www.kaggle.com/code/gulsahyesilmen/hybrid-recommender-system)
+
 ## Repository Structure
 
 ```text
 data-analysis-portfolio/
 ├── README.md
+├── .gitignore
 ├── ab-testing/
+│   ├── README.md
 │   └── a-b-testing.ipynb
-└── product-rating/
-    └── rating-products-sorting-reviews.ipynb
+├── product-rating/
+│   ├── README.md
+│   └── rating-products-sorting-reviews.ipynb
+└── hybrid-recommender/
+    ├── README.md
+    └── hybrid-recommender-system.ipynb
 ```
 
 ## Running the Notebooks
@@ -50,10 +69,13 @@ The notebooks were developed in Kaggle. Their current data paths use `/kaggle/in
 
 Required data:
 
-| Project | File | Notes |
+| Project | Files | Notes |
 | --- | --- | --- |
 | A/B Testing | `ab_testing.xlsx` | Sheets: `Control Group` and `Test Group` |
 | Product Rating | `amazon_review.csv` | Includes ratings, review age, and helpful-vote counts |
+| Hybrid Recommender | `movie.csv`, `rating.csv` | MovieLens metadata and user ratings, including timestamps |
+
+The MovieLens rating dataset and dense user–movie matrix may require substantial memory and processing time.
 
 Datasets are not included. Access may be restricted; follow the original data provider's permissions and terms. Saved notebook outputs allow inspection without rerunning the analysis.
 
